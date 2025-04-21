@@ -1,0 +1,383 @@
+/* Reset and Basics */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  background-color: #f0f4ff;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Header */
+header {
+  background: #004aad;
+  color: #fff;
+  padding: 1rem 0;
+  text-align: center;
+  position: relative;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+nav .logo img {
+  height: 50px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
+}
+
+.hero-text {
+  margin-top: 20px;
+}
+
+.hero-text h1 {
+  font-size: 2.5rem;
+}
+
+/* Events Section */
+#events {
+  padding: 40px 20px;
+  background: #eaf0ff;
+  text-align: center;
+}
+
+#events h2 {
+  margin-bottom: 20px;
+  font-size: 2rem;
+  color: #002766;
+}
+
+.event-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.event-card {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  overflow: hidden;
+  transition: transform 0.3s;
+}
+
+.event-card:hover {
+  transform: translateY(-5px);
+}
+
+.event-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.event-info {
+  padding: 15px;
+}
+
+.event-info h3 {
+  margin: 0.5rem 0;
+  color: #004aad;
+}
+
+.event-info p {
+  margin: 0.5rem 0;
+}
+
+.download-btn, .register-btn {
+  display: inline-block;
+  margin: 8px 5px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  color: white;
+  background: #004aad;
+  transition: background 0.3s;
+}
+
+.download-btn:hover, .register-btn:hover {
+  background: #002766;
+}
+
+.event-location {
+  font-size: 0.9rem;
+  color: #555;
+  margin-top: 10px;
+}
+
+/* About Section */
+#about {
+  background: #cbd8ff;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+#about h2 {
+  margin-bottom: 15px;
+  font-size: 2rem;
+}
+
+#about p {
+  max-width: 800px;
+  margin: auto;
+  line-height: 1.8;
+}
+
+/* Footer */
+footer {
+  background: #004aad;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+footer .social-media a {
+  margin: 0 10px;
+  color: white;
+  text-decoration: none;
+}
+
+footer .social-media a:hover {
+  text-decoration: underline;
+}
+
+/* Theme Toggle */
+.dark-theme {
+  background-color: #121212;
+  color: #e4e4e4;
+}
+
+.dark-theme header,
+.dark-theme footer {
+  background-color: #1a1a1a;
+}
+
+.dark-theme .event-card {
+  background: #1e1e1e;
+  color: #e4e4e4;
+}
+
+.dark-theme .download-btn, .dark-theme .register-btn {
+  background: #006eff;
+}
+
+/* Back to Top */
+#back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: #004aad;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+  transition: background 0.3s;
+}
+
+#back-to-top:hover {
+  background: #002766;
+}
+
+/* Countdown Timer fixed position */
+#countdown {
+  position: fixed;
+  top: 10px;
+  right: 20px;
+  background: #004aad;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 20px;
+  font-weight: bold;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+/* Loading Overlay */
+#loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #004aad;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  color: white;
+  font-size: 1.5rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  nav .nav-links {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .event-card img {
+    height: 150px;
+  }
+
+  #countdown {
+    font-size: 0.9rem;
+    padding: 6px 10px;
+  }
+}
+
+.event-card.tech {
+  border-left: 5px solid #0077cc;
+  background: rgba(0, 119, 204, 0.05);
+}
+
+.event-card.non-tech {
+  border-left: 5px solid #e67e22;
+  background: rgba(230, 126, 34, 0.05);
+}
+
+.event-card h3::before {
+  content: attr(data-category);
+  display: inline-block;
+  background: #333;
+  color: white;
+  font-size: 0.7em;
+  padding: 2px 8px;
+  margin-right: 8px;
+  border-radius: 4px;
+}
+
+.event-card.tech h3::before {
+  content: "TECH";
+  background: #0077cc;
+}
+
+.event-card.non-tech h3::before {
+  content: "NON-TECH";
+  background: #e67e22;
+}
+
+.contact-section {
+  text-align: center;
+  background-color: var(--section-bg, #eef6ff);
+  padding: 40px 20px;
+  margin-top: 40px;
+  border-radius: 10px;
+}
+
+.contact-section h2 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: var(--primary-color, #0077cc);
+}
+
+.contact-list {
+  list-style: none;  /* removes bullets by default */
+  padding: 0;
+  margin: 0;
+}
+
+.contact-list li {
+  margin: 5px 0;
+  font-size: 16px;
+}
+
+/* Optional: smaller or different style for phone screens */
+@media (max-width: 768px) {
+  .contact-list {
+    list-style: none;  /* Ensure bullets are gone */
+    padding: 0;
+  }
+
+  .contact-list li {
+    font-size: 14px;
+    margin: 8px 0;
+  }
+}
+
+#contact {
+  padding: 40px 20px;
+  text-align: center;
+  background: var(--background-color, #f2f2f2);
+}
+
+#contact h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+#contact p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+.contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto 30px auto;
+  max-width: 400px;
+  text-align: left;
+}
+
+.contact-list li {
+  font-size: 1rem;
+  margin: 8px 0;
+}
+
+/* Mobile friendly: Make sure list remains clean on small devices */
+@media (max-width: 768px) {
+  .contact-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto 20px auto;
+  }
+
+  .contact-list li {
+    font-size: 0.95rem;
+    margin: 10px 0;
+  }
+}
+
+.map-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  margin: 20px 0;
+}
+
+.map-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
